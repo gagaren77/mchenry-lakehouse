@@ -4,13 +4,32 @@
   "shortName": "McHenry Lakehouse",
   "tagline": "Private-lake cabin with heated pool",
   "domain": "https://mchenry.geekysquirrels.com",
-  "location": { "locality": "McHenry", "region": "IL", "regionName": "Illinois", "country": "US", "area": "Chain O'Lakes", "lat": 42.365395, "lng": -88.21609 },
+  "location": {
+    "locality": "McHenry",
+    "region": "IL",
+    "regionName": "Illinois",
+    "country": "US",
+    "area": "Chain O'Lakes",
+    "lat": 42.365395,
+    "lng": -88.21609
+  },
   "seo": {
     "title": "McHenry Lakehouse · Private-lake cabin with heated pool near Chicago",
     "description": "A 4-bedroom, 4.5-bath lake cabin in McHenry, Illinois with a heated outdoor pool, hot tub, private lake access, dock and canoe. Sleeps 12, dog-friendly, about an hour from Chicago.",
     "ogImage": "https://media.vrbo.com/lodging/84000000/83450000/83448000/83447985/42544db9.jpg?impolicy=resizecrop&rw=1200&ra=fit"
   },
-  "booking": { "vrbo": "https://www.vrbo.com/2934337", "label": "VRBO", "maxGuests": 12, "pets": ["None", "1 dog", "2 dogs"], "checkin": "4:00 PM", "checkout": "10:00 AM" },
+  "booking": {
+    "vrbo": "https://www.vrbo.com/2934337",
+    "label": "VRBO",
+    "maxGuests": 12,
+    "pets": [
+      "None",
+      "1 dog",
+      "2 dogs"
+    ],
+    "checkin": "4:00 PM",
+    "checkout": "10:00 AM"
+  },
   "hero": {
     "eyebrow": "McHenry, Illinois · Chain O'Lakes",
     "title": "Your own private lake,",
@@ -20,7 +39,24 @@
     "fallback": "/photos/pool-house.jpg",
     "alt": "Heated outdoor pool behind the lake cabin"
   },
-  "facts": [ ["4", "Bedrooms"], ["4.5", "Baths"], ["12", "Guests"], ["9.4", "Guest rating"] ],
+  "facts": [
+    [
+      "4",
+      "Bedrooms"
+    ],
+    [
+      "4.5",
+      "Baths"
+    ],
+    [
+      "12",
+      "Guests"
+    ],
+    [
+      "9.4",
+      "Guest rating"
+    ]
+  ],
   "intro": {
     "eyebrow": "The house",
     "title": "Room to spread out, water on every side",
@@ -31,60 +67,358 @@
     ]
   },
   "highlights": [
-    { "title": "Heated pool & hot tub", "text": "A heated outdoor pool steps from the back door, lit up after dark, with a hot tub on the lower patio.", "photo": "/photos/pool-lake-view.jpg" },
-    { "title": "Private lake & dock", "text": "Your own dock on a quiet private lake: fish off the pier, take the canoe out, end the day at the gazebo and fire pit.", "photo": "/photos/gazebo-summer.jpg" },
-    { "title": "Bar & game level", "text": "A downstairs bar with a pub table, game tables, an arcade and a second fireplace for evenings in.", "photo": "/photos/bar-lounge.jpg" }
+    {
+      "title": "Heated pool & hot tub",
+      "text": "A heated outdoor pool steps from the back door, lit up after dark, with a hot tub on the lower patio.",
+      "photo": "/photos/pool-lake-view.jpg"
+    },
+    {
+      "title": "Private lake & dock",
+      "text": "Your own dock on a quiet private lake: fish off the pier, take the canoe out, end the day at the gazebo and fire pit.",
+      "photo": "/photos/gazebo-summer.jpg"
+    },
+    {
+      "title": "Bar & game level",
+      "text": "A downstairs bar with a pub table, game tables, an arcade and a second fireplace for evenings in.",
+      "photo": "/photos/bar-lounge.jpg"
+    }
   ],
-  "sleeping": [ ["Bedroom 1", "1 king bed"], ["Bedroom 2", "2 queen beds"], ["Bedroom 3", "1 king bed"], ["Bedroom 4", "1 king bed"], ["Common area", "1 double futon"] ],
-  "baths": [ "4 full baths, 3 with walk-in showers", "1 bath with shower and jetted tub", "1 half bath" ],
+  "sleeping": [
+    [
+      "Bedroom 1",
+      "1 king bed"
+    ],
+    [
+      "Bedroom 2",
+      "2 queen beds"
+    ],
+    [
+      "Bedroom 3",
+      "1 king bed"
+    ],
+    [
+      "Bedroom 4",
+      "1 king bed"
+    ],
+    [
+      "Common area",
+      "1 double futon"
+    ]
+  ],
+  "baths": [
+    "4 full baths, 3 with walk-in showers",
+    "1 bath with shower and jetted tub",
+    "1 half bath"
+  ],
   "amenities": [
-    { "group": "Water & outdoors", "items": [ ["pool", "Heated outdoor pool"], ["spa", "Hot tub"], ["dock", "Private lake access with dock"], ["canoe", "Canoe and fishing from the pier"], ["deck", "Deck, porch, lakeside gazebo and fire pit"], ["leaf", "Garden and big backyard"], ["dining", "Outdoor dining area"] ] },
-    { "group": "Inside", "items": [ ["kitchen", "Full kitchen plus kitchenette"], ["dining", "Separate dining room"], ["bar", "Downstairs bar, game tables and arcade"], ["office", "Home office"], ["gym", "Loft lounge with fitness corner"], ["bath", "Jetted bathtub"] ] },
-    { "group": "Practical", "items": [ ["car", "Free on-site parking"], ["dog", "Dog-friendly (2 dogs, up to 50 lb)"], ["people", "Sleeps 12 in 4 bedrooms"], ["clock", "Check-in 4 PM · Check-out 10 AM"], ["train", "Fox Lake Metra station 7 min away"] ] }
+    {
+      "group": "Water & outdoors",
+      "items": [
+        [
+          "pool",
+          "Heated outdoor pool"
+        ],
+        [
+          "spa",
+          "Hot tub"
+        ],
+        [
+          "dock",
+          "Private lake access with dock"
+        ],
+        [
+          "canoe",
+          "Canoe and fishing from the pier"
+        ],
+        [
+          "deck",
+          "Deck, porch, lakeside gazebo and fire pit"
+        ],
+        [
+          "leaf",
+          "Garden and big backyard"
+        ],
+        [
+          "dining",
+          "Outdoor dining area"
+        ]
+      ]
+    },
+    {
+      "group": "Inside",
+      "items": [
+        [
+          "kitchen",
+          "Full kitchen plus kitchenette"
+        ],
+        [
+          "dining",
+          "Separate dining room"
+        ],
+        [
+          "bar",
+          "Downstairs bar, game tables and arcade"
+        ],
+        [
+          "office",
+          "Home office"
+        ],
+        [
+          "gym",
+          "Loft lounge with fitness corner"
+        ],
+        [
+          "bath",
+          "Jetted bathtub"
+        ]
+      ]
+    },
+    {
+      "group": "Practical",
+      "items": [
+        [
+          "car",
+          "Free on-site parking"
+        ],
+        [
+          "dog",
+          "Dog-friendly (2 dogs, up to 50 lb)"
+        ],
+        [
+          "people",
+          "Sleeps 12 in 4 bedrooms"
+        ],
+        [
+          "clock",
+          "Check-in 4 PM · Check-out 10 AM"
+        ],
+        [
+          "train",
+          "Fox Lake Metra station 7 min away"
+        ]
+      ]
+    }
   ],
   "seasons": [
-    { "name": "Summer", "text": "Pool days, pontoon rentals on the Chain, fishing off the dock and Fourth of July fireworks over the water.", "photo": "/photos/pool-night.jpg" },
-    { "name": "Winter", "text": "Snow on the lake, the gazebo lit up at night, two fireplaces and the hot tub. Quiet, cozy and close to the city.", "photo": "/photos/winter-gazebo.jpg" }
+    {
+      "name": "Summer",
+      "text": "Pool days, pontoon rentals on the Chain, fishing off the dock and Fourth of July fireworks over the water.",
+      "photo": "/photos/pool-night.jpg"
+    },
+    {
+      "name": "Winter",
+      "text": "Snow on the lake, the gazebo lit up at night, two fireplaces and the hot tub. Quiet, cozy and close to the city.",
+      "photo": "/photos/winter-gazebo.jpg"
+    }
   ],
-  "rating": { "score": 9.4, "outOf": 10, "label": "Exceptional", "count": 15, "source": "VRBO",
-    "categories": [ ["Cleanliness", 9.4], ["Check-in", 9.4], ["Communication", 9.4], ["Location", 9.4], ["Accuracy", 9.2] ] },
+  "rating": {
+    "score": 9.4,
+    "outOf": 10,
+    "label": "Exceptional",
+    "count": 15,
+    "source": "VRBO",
+    "categories": [
+      [
+        "Cleanliness",
+        9.4
+      ],
+      [
+        "Check-in",
+        9.4
+      ],
+      [
+        "Communication",
+        9.4
+      ],
+      [
+        "Location",
+        9.4
+      ],
+      [
+        "Accuracy",
+        9.2
+      ]
+    ]
+  },
   "reviews": [
-    { "name": "Lori P.", "when": "July 2026", "title": "Second stay, still perfect", "text": "Came back for a second visit. Loads of space, spotless, great fishing off the dock, and front-row views of the Fourth of July fireworks." },
-    { "name": "Emily M.", "when": "July 2025", "title": "Pool, private lake and a canoe", "text": "We spent our days between the pool and the private lake, took the canoe out, and rented a boat nearby for a day on the Chain." },
-    { "name": "Marisa B.", "when": "August 2023", "title": "A 60th birthday to remember", "text": "Eight adults, three kids and two babies celebrated a 60th birthday here. Everyone loved the pool and the downstairs bar." },
-    { "name": "Justin G.", "when": "July 2026", "title": "Fantastic, unique property", "text": "A one-of-a-kind place. We would book it again without a second thought." },
-    { "name": "Nancy P.", "when": "July 2024", "title": "A spectacular setting", "text": "Our family getaway was boating, swimming and bonfires in a spectacular lakeside setting." },
-    { "name": "Martha T.", "when": "January 2026", "title": "Room for the whole family", "text": "Loved the big backyard, the open layout and the fun bear-themed decor. Plenty of room for everyone." },
-    { "name": "Megan R.", "when": "August 2025", "title": "The kids never wanted to leave", "text": "Our family vacation was all pool time and fishing. The kids had the best week." },
-    { "name": "Verified guest", "when": "July 2025", "title": "Plenty of beds and baths", "text": "Seven adults and nobody was ever waiting. Lots of sleeping space and bathrooms for a group." },
-    { "name": "Frank G.", "when": "July 2026", "title": "Clean and well kept", "text": "We gathered for a family celebration. The house was clean and well maintained, and the pool was great." },
-    { "name": "AC G.", "when": "August 2023", "title": "Thoughtful details", "text": "Bathrooms with the bedrooms, a great kitchen, the pool and the dock. Everything a group needs." },
-    { "name": "Annie G.", "when": "September 2024", "title": "Attentive owner", "text": "We enjoyed the pool and the fishing, and the owner was attentive and quick to respond." },
-    { "name": "David A.", "when": "August 2026", "title": "Beautiful and very clean", "text": "Four nights in a very clean, beautiful home. We enjoyed every minute." }
+    {
+      "name": "Lori P.",
+      "when": "July 2026",
+      "title": "Second stay, still perfect",
+      "text": "Came back for a second visit. Loads of space, spotless, great fishing off the dock, and front-row views of the Fourth of July fireworks."
+    },
+    {
+      "name": "Emily M.",
+      "when": "July 2025",
+      "title": "Pool, private lake and a canoe",
+      "text": "We spent our days between the pool and the private lake, took the canoe out, and rented a boat nearby for a day on the Chain."
+    },
+    {
+      "name": "Marisa B.",
+      "when": "August 2023",
+      "title": "A 60th birthday to remember",
+      "text": "Eight adults, three kids and two babies celebrated a 60th birthday here. Everyone loved the pool and the downstairs bar."
+    },
+    {
+      "name": "Justin G.",
+      "when": "July 2026",
+      "title": "Fantastic, unique property",
+      "text": "A one-of-a-kind place. We would book it again without a second thought."
+    },
+    {
+      "name": "Nancy P.",
+      "when": "July 2024",
+      "title": "A spectacular setting",
+      "text": "Our family getaway was boating, swimming and bonfires in a spectacular lakeside setting."
+    },
+    {
+      "name": "Martha T.",
+      "when": "January 2026",
+      "title": "Room for the whole family",
+      "text": "Loved the big backyard, the open layout and the fun bear-themed decor. Plenty of room for everyone."
+    },
+    {
+      "name": "Megan R.",
+      "when": "August 2025",
+      "title": "The kids never wanted to leave",
+      "text": "Our family vacation was all pool time and fishing. The kids had the best week."
+    },
+    {
+      "name": "Verified guest",
+      "when": "July 2025",
+      "title": "Plenty of beds and baths",
+      "text": "Seven adults and nobody was ever waiting. Lots of sleeping space and bathrooms for a group."
+    },
+    {
+      "name": "Frank G.",
+      "when": "July 2026",
+      "title": "Clean and well kept",
+      "text": "We gathered for a family celebration. The house was clean and well maintained, and the pool was great."
+    },
+    {
+      "name": "AC G.",
+      "when": "August 2023",
+      "title": "Thoughtful details",
+      "text": "Bathrooms with the bedrooms, a great kitchen, the pool and the dock. Everything a group needs."
+    },
+    {
+      "name": "Annie G.",
+      "when": "September 2024",
+      "title": "Attentive owner",
+      "text": "We enjoyed the pool and the fishing, and the owner was attentive and quick to respond."
+    },
+    {
+      "name": "David A.",
+      "when": "August 2026",
+      "title": "Beautiful and very clean",
+      "text": "Four nights in a very clean, beautiful home. We enjoyed every minute."
+    }
   ],
   "area": {
     "intro": "McHenry sits on the Fox River at the edge of the Chain O'Lakes, one of the busiest boating areas in the Midwest. Summer means pontoon days, sandbars and fireworks over the water. In the off-season it's nature trails, small-town diners and the antique shops along the river.",
     "places": [
-      { "dist": "3 min walk", "name": "Pistakee Lake", "text": "Part of the Chain O'Lakes. Rent a boat or jet ski nearby and explore 15 connected lakes.", "img": "lake" },
-      { "dist": "7 min drive", "name": "Volo Bog State Natural Area", "text": "A rare quaking bog with a floating boardwalk trail. Great for an easy family walk.", "img": "bog" },
-      { "dist": "8 min drive", "name": "Volo Museum", "text": "Hundreds of classic and movie cars, plus antique malls. A good rainy-day pick.", "img": "cars" },
-      { "dist": "10 min drive", "name": "Petersen Park Beach", "text": "McHenry's city beach and park on McCullom Lake, with a swimming beach and playgrounds.", "img": "beach" },
-      { "dist": "8 min drive", "name": "Riverside Chocolate Factory", "text": "Sweet shop on the river in downtown McHenry, close to restaurants and bars.", "img": "chocolate" },
-      { "dist": "25 min drive", "name": "Gurnee Mills", "text": "One of the Midwest's largest outlet malls, with dining and entertainment.", "img": "shopping" },
-      { "dist": "27 min drive", "name": "Six Flags Great America", "text": "Roller coasters and the Hurricane Harbor water park for the thrill-seekers.", "img": "coaster" },
-      { "dist": "31 min drive", "name": "Lake Geneva, WI", "text": "Lakeshore path, mansion boat tours and a lively downtown just over the state line.", "img": "geneva" }
+      {
+        "dist": "3 min walk",
+        "name": "Pistakee Lake",
+        "text": "Part of the Chain O'Lakes. Rent a boat or jet ski nearby and explore 15 connected lakes.",
+        "img": "lake"
+      },
+      {
+        "dist": "7 min drive",
+        "name": "Volo Bog State Natural Area",
+        "text": "A rare quaking bog with a floating boardwalk trail. Great for an easy family walk.",
+        "img": "bog"
+      },
+      {
+        "dist": "8 min drive",
+        "name": "Volo Museum",
+        "text": "Hundreds of classic and movie cars, plus antique malls. A good rainy-day pick.",
+        "img": "cars"
+      },
+      {
+        "dist": "10 min drive",
+        "name": "Petersen Park Beach",
+        "text": "McHenry's city beach and park on McCullom Lake, with a swimming beach and playgrounds.",
+        "img": "beach"
+      },
+      {
+        "dist": "8 min drive",
+        "name": "Riverside Chocolate Factory",
+        "text": "Sweet shop on the river in downtown McHenry, close to restaurants and bars.",
+        "img": "chocolate"
+      },
+      {
+        "dist": "25 min drive",
+        "name": "Gurnee Mills",
+        "text": "One of the Midwest's largest outlet malls, with dining and entertainment.",
+        "img": "shopping"
+      },
+      {
+        "dist": "27 min drive",
+        "name": "Six Flags Great America",
+        "text": "Roller coasters and the Hurricane Harbor water park for the thrill-seekers.",
+        "img": "coaster"
+      },
+      {
+        "dist": "31 min drive",
+        "name": "Lake Geneva, WI",
+        "text": "Lakeshore path, mansion boat tours and a lively downtown just over the state line.",
+        "img": "geneva"
+      }
     ],
     "routes": [
-      { "from": "Chicago O'Hare (ORD)", "text": "About 50 miles · around 1 hour via I-90 W and IL-31 N, or I-94 and IL-120 W.", "origin": "O'Hare International Airport" },
-      { "from": "Downtown Chicago", "text": "About 60 miles · 1 hr 15 min via I-90/94 and I-94 N to IL-120 W.", "origin": "Chicago, IL" },
-      { "from": "Milwaukee, WI", "text": "About 60 miles · 1 hr 10 min via I-94 S and WI-50 / US-12.", "origin": "Milwaukee, WI" },
-      { "from": "By train", "text": "Metra's Milwaukee District North line runs from Chicago Union Station to Fox Lake, about 7 minutes from the house by car.", "origin": "Fox Lake Metra Station", "link": "From the station" }
+      {
+        "from": "Chicago O'Hare (ORD)",
+        "text": "About 50 miles · around 1 hour via I-90 W and IL-31 N, or I-94 and IL-120 W.",
+        "origin": "O'Hare International Airport"
+      },
+      {
+        "from": "Downtown Chicago",
+        "text": "About 60 miles · 1 hr 15 min via I-90/94 and I-94 N to IL-120 W.",
+        "origin": "Chicago, IL"
+      },
+      {
+        "from": "Milwaukee, WI",
+        "text": "About 60 miles · 1 hr 10 min via I-94 S and WI-50 / US-12.",
+        "origin": "Milwaukee, WI"
+      },
+      {
+        "from": "By train",
+        "text": "Metra's Milwaukee District North line runs from Chicago Union Station to Fox Lake, about 7 minutes from the house by car.",
+        "origin": "Fox Lake Metra Station",
+        "link": "From the station"
+      }
     ]
   },
   "rules": [
-    ["Check-in", "After 4:00 PM"], ["Check-out", "By 10:00 AM"], ["Guests", "Up to 12. Please keep the group to the number on your booking."],
-    ["Pets", "Up to 2 dogs, 50 lb each or less. Please let us know when you book."], ["Smoking", "Not allowed inside the house."],
-    ["Quiet hours", "Please keep it down after 10 PM out of respect for the neighbors."], ["Events", "Planning a party or celebration? Ask first so we can confirm it works."]
+    [
+      "Check-in",
+      "After 4:00 PM"
+    ],
+    [
+      "Check-out",
+      "By 10:00 AM"
+    ],
+    [
+      "Guests",
+      "Up to 12. Please keep the group to the number on your booking."
+    ],
+    [
+      "Pets",
+      "Up to 2 dogs, 50 lb each or less. Please let us know when you book."
+    ],
+    [
+      "Smoking",
+      "Not allowed inside the house."
+    ],
+    [
+      "Quiet hours",
+      "Please keep it down after 10 PM out of respect for the neighbors."
+    ],
+    [
+      "Events",
+      "Planning a party or celebration? Ask first so we can confirm it works."
+    ]
   ],
   "safety": [
     "Children must be supervised by an adult at the pool, hot tub, dock and lake at all times. There is no lifeguard.",
@@ -95,59 +429,308 @@
     "The exact address, door code and Wi-Fi details are shared before arrival."
   ],
   "faq": [
-    ["Is the pool heated, and when is it open?", "Yes, the outdoor pool is heated. It's a seasonal outdoor pool, generally open late spring through early fall depending on weather. Send us your dates and we'll confirm."],
-    ["Can we bring our dog?", "Yes. Up to two dogs are welcome, each 50 lb or less. Please mention them in your request."],
-    ["Is the house on the water?", "The property has its own access and dock on a small private lake just past the pool, with a canoe and fishing from the pier. The larger Pistakee Lake and the Chain O'Lakes are about a 3-minute walk."],
-    ["Can we bring or rent a boat?", "Several marinas around Pistakee Lake rent pontoons and other boats by the day. Guests regularly rent one for a day on the Chain."],
-    ["Is it good for families and groups?", "That's who it's built for. Four bedrooms, a futon, four and a half baths, two kitchens and a big backyard give a group of up to 12 room to spread out."],
-    ["How do I book?", "Book instantly on VRBO, or send a request on this site and we'll reply with a quote and any questions."],
-    ["Is there somewhere to work?", "Yes, there's a dedicated office space in the house."]
+    [
+      "Is the pool heated, and when is it open?",
+      "Yes, the outdoor pool is heated. It's a seasonal outdoor pool, generally open late spring through early fall depending on weather. Send us your dates and we'll confirm."
+    ],
+    [
+      "Can we bring our dog?",
+      "Yes. Up to two dogs are welcome, each 50 lb or less. Please mention them in your request."
+    ],
+    [
+      "Is the house on the water?",
+      "The property has its own access and dock on a small private lake just past the pool, with a canoe and fishing from the pier. The larger Pistakee Lake and the Chain O'Lakes are about a 3-minute walk."
+    ],
+    [
+      "Can we bring or rent a boat?",
+      "Several marinas around Pistakee Lake rent pontoons and other boats by the day. Guests regularly rent one for a day on the Chain."
+    ],
+    [
+      "Is it good for families and groups?",
+      "That's who it's built for. Four bedrooms, a futon, four and a half baths, two kitchens and a big backyard give a group of up to 12 room to spread out."
+    ],
+    [
+      "How do I book?",
+      "Book instantly on VRBO, or send a request on this site and we'll reply with a quote and any questions."
+    ],
+    [
+      "Is there somewhere to work?",
+      "Yes, there's a dedicated office space in the house."
+    ]
   ],
   "photos": [
-    { "src": "/photos/pool-lake-view.jpg", "cap": "Pool with the lake beyond", "group": "Outdoors & the lake" },
-    { "src": "/photos/pool-house.jpg", "cap": "Heated pool and the back of the house", "group": "Outdoors & the lake" },
-    { "src": "/photos/gazebo-summer.jpg", "cap": "Lakeside gazebo and the path up to the house", "group": "Outdoors & the lake" },
-    { "src": "/photos/front-summer.jpg", "cap": "The cabin in summer", "group": "Outdoors & the lake" },
-    { "src": "/photos/pool-night.jpg", "cap": "The pool lit up at night", "group": "Outdoors & the lake" },
-    { "src": "/photos/patio-lake-night.jpg", "cap": "Patio over the lake at night", "group": "Outdoors & the lake" },
-    { "src": "/photos/hot-tub-patio.jpg", "cap": "Hot tub on the lower patio", "group": "Outdoors & the lake" },
-    { "src": "/photos/hot-tub.jpg", "cap": "Hot tub", "group": "Outdoors & the lake" },
-    { "src": "/photos/front-porch.jpg", "cap": "Front porch", "group": "Outdoors & the lake" },
-    { "src": "/photos/great-room.jpg", "cap": "Great room with stone fireplace and loft", "group": "Living spaces" },
-    { "src": "/photos/kitchen-island.jpg", "cap": "Kitchen island with seating", "group": "Living spaces" },
-    { "src": "/photos/kitchen.jpg", "cap": "Kitchen with double ovens", "group": "Living spaces" },
-    { "src": "/photos/dining-room.jpg", "cap": "Dining room", "group": "Living spaces" },
-    { "src": "/photos/loft.jpg", "cap": "Loft lounge with fitness corner", "group": "Living spaces" },
-    { "src": "/photos/kitchenette.jpg", "cap": "Retro diner kitchenette", "group": "Living spaces" },
-    { "src": "/photos/office.jpg", "cap": "Home office", "group": "Living spaces" },
-    { "src": "/photos/bar.jpg", "cap": "Downstairs bar and game table", "group": "Bar & game level" },
-    { "src": "/photos/family-room.jpg", "cap": "Lower-level family room with fireplace", "group": "Bar & game level" },
-    { "src": "/photos/game-table.jpg", "cap": "Game table and bar", "group": "Bar & game level" },
-    { "src": "/photos/bar-lounge.jpg", "cap": "Bar lounge with sofa and arcade", "group": "Bar & game level" },
-    { "src": "/photos/pub-table.jpg", "cap": "Pub table by the bar", "group": "Bar & game level" },
-    { "src": "/photos/king-bedroom.jpg", "cap": "King bedroom with vaulted ceiling", "group": "Bedrooms & baths" },
-    { "src": "/photos/bear-bedroom.jpg", "cap": "Bear-themed king bedroom", "group": "Bedrooms & baths" },
-    { "src": "/photos/bedroom-tv.jpg", "cap": "King bedroom with en-suite bath", "group": "Bedrooms & baths" },
-    { "src": "/photos/queen-bedroom.jpg", "cap": "Bedroom with two queen beds", "group": "Bedrooms & baths" },
-    { "src": "/photos/jetted-bath.jpg", "cap": "Bath with jetted tub and walk-in shower", "group": "Bedrooms & baths" },
-    { "src": "/photos/bath-vanity.jpg", "cap": "Bathroom with walk-in shower", "group": "Bedrooms & baths" },
-    { "src": "/photos/half-bath.jpg", "cap": "Half bath", "group": "Bedrooms & baths" },
-    { "src": "/photos/deck-sunset.jpg", "cap": "Winter sunset from the deck", "group": "Winter at the lake" },
-    { "src": "/photos/deck-winter-lake.jpg", "cap": "Lake view from the deck in winter", "group": "Winter at the lake" },
-    { "src": "/photos/winter-gazebo.jpg", "cap": "Lakeside gazebo on a winter night", "group": "Winter at the lake" },
-    { "src": "/photos/winter-gazebo-dock.jpg", "cap": "Gazebo and dock in winter", "group": "Winter at the lake" },
-    { "src": "/photos/winter-lake.jpg", "cap": "The private lake in winter", "group": "Winter at the lake" },
-    { "src": "/photos/winter-back.jpg", "cap": "Back of the cabin after a snowfall", "group": "Winter at the lake" },
-    { "src": "/photos/winter-hill.jpg", "cap": "The cabin on the hill in winter", "group": "Winter at the lake" },
-    { "src": "/photos/winter-house.jpg", "cap": "The cabin glowing on a snowy evening", "group": "Winter at the lake" },
-    { "src": "/photos/winter-front.jpg", "cap": "Front of the cabin on a winter night", "group": "Winter at the lake" },
-    { "src": "/photos/winter-yard.jpg", "cap": "The house across the snowy yard", "group": "Winter at the lake" },
-    { "src": "/photos/winter-firepit.jpg", "cap": "Fire pit and the house on a snowy night", "group": "Winter at the lake" },
-    { "src": "/photos/winter-deck.jpg", "cap": "The deck on a winter evening", "group": "Winter at the lake" },
-    { "src": "/photos/winter-steps.jpg", "cap": "Lit steps down to the lake in winter", "group": "Winter at the lake" }
+    {
+      "src": "/photos/pool-lake-view.jpg",
+      "cap": "Pool with the lake beyond",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/pool-house.jpg",
+      "cap": "Heated pool and the back of the house",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/gazebo-summer.jpg",
+      "cap": "Lakeside gazebo and the path up to the house",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/front-summer.jpg",
+      "cap": "The cabin in summer",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/pool-night.jpg",
+      "cap": "The pool lit up at night",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/patio-lake-night.jpg",
+      "cap": "Patio over the lake at night",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/hot-tub-patio.jpg",
+      "cap": "Hot tub on the lower patio",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/hot-tub.jpg",
+      "cap": "Hot tub",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/front-porch.jpg",
+      "cap": "Front porch",
+      "group": "Outdoors & the lake"
+    },
+    {
+      "src": "/photos/great-room.jpg",
+      "cap": "Great room with stone fireplace and loft",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/kitchen-island.jpg",
+      "cap": "Kitchen island with seating",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/kitchen.jpg",
+      "cap": "Kitchen with double ovens",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/dining-room.jpg",
+      "cap": "Dining room",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/loft.jpg",
+      "cap": "Loft lounge with fitness corner",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/kitchenette.jpg",
+      "cap": "Retro diner kitchenette",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/office.jpg",
+      "cap": "Home office",
+      "group": "Living spaces"
+    },
+    {
+      "src": "/photos/bar.jpg",
+      "cap": "Downstairs bar and game table",
+      "group": "Bar & game level"
+    },
+    {
+      "src": "/photos/family-room.jpg",
+      "cap": "Lower-level family room with fireplace",
+      "group": "Bar & game level"
+    },
+    {
+      "src": "/photos/game-table.jpg",
+      "cap": "Game table and bar",
+      "group": "Bar & game level"
+    },
+    {
+      "src": "/photos/bar-lounge.jpg",
+      "cap": "Bar lounge with sofa and arcade",
+      "group": "Bar & game level"
+    },
+    {
+      "src": "/photos/pub-table.jpg",
+      "cap": "Pub table by the bar",
+      "group": "Bar & game level"
+    },
+    {
+      "src": "/photos/king-bedroom.jpg",
+      "cap": "King bedroom with vaulted ceiling",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/bear-bedroom.jpg",
+      "cap": "Bear-themed king bedroom",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/bedroom-tv.jpg",
+      "cap": "King bedroom with en-suite bath",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/queen-bedroom.jpg",
+      "cap": "Bedroom with two queen beds",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/jetted-bath.jpg",
+      "cap": "Bath with jetted tub and walk-in shower",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/bath-vanity.jpg",
+      "cap": "Bathroom with walk-in shower",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/half-bath.jpg",
+      "cap": "Half bath",
+      "group": "Bedrooms & baths"
+    },
+    {
+      "src": "/photos/deck-sunset.jpg",
+      "cap": "Winter sunset from the deck",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/deck-winter-lake.jpg",
+      "cap": "Lake view from the deck in winter",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-gazebo.jpg",
+      "cap": "Lakeside gazebo on a winter night",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-gazebo-dock.jpg",
+      "cap": "Gazebo and dock in winter",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-lake.jpg",
+      "cap": "The private lake in winter",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-back.jpg",
+      "cap": "Back of the cabin after a snowfall",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-hill.jpg",
+      "cap": "The cabin on the hill in winter",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-house.jpg",
+      "cap": "The cabin glowing on a snowy evening",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-front.jpg",
+      "cap": "Front of the cabin on a winter night",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-yard.jpg",
+      "cap": "The house across the snowy yard",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-firepit.jpg",
+      "cap": "Fire pit and the house on a snowy night",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-deck.jpg",
+      "cap": "The deck on a winter evening",
+      "group": "Winter at the lake"
+    },
+    {
+      "src": "/photos/winter-steps.jpg",
+      "cap": "Lit steps down to the lake in winter",
+      "group": "Winter at the lake"
+    }
   ],
   "unsplash": {
     "_comment": "Supplementary area/lifestyle images, hotlinked per Unsplash guidelines. Keys match area.places[].img and 'banner'. Each: { url, author, authorUrl, photoUrl }.",
-    "images": {}
+    "images": {
+      "banner": {
+        "url": "https://images.unsplash.com/photo-1706033697052-8024c05211ef?ixlib=rb-4.1.0&auto=format&fit=crop&w=2000&q=80",
+        "alt": "Kayakers on the water at Glacial Park, McHenry County",
+        "author": "mads leetzow",
+        "authorUrl": "https://unsplash.com/@mads_leetzow",
+        "photoUrl": "https://unsplash.com/photos/ZvmIw5fpnec"
+      },
+      "lake": {
+        "url": "https://images.unsplash.com/photo-1603373790935-0b89947e413a?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "Calm lake water lined with green trees",
+        "author": "Skyler Smith",
+        "authorUrl": "https://unsplash.com/@skyler_tv",
+        "photoUrl": "https://unsplash.com/photos/wEwQq1ke-sg"
+      },
+      "bog": {
+        "url": "https://images.unsplash.com/photo-1775415323651-ef677820e6a5?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "Wooden boardwalk through a green marsh",
+        "author": "Howard Walsh",
+        "authorUrl": "https://unsplash.com/@hswalsh",
+        "photoUrl": "https://unsplash.com/photos/mcQK0-Ti6-U"
+      },
+      "cars": {
+        "url": "https://images.unsplash.com/photo-1724011888525-d38f61a06496?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "Classic cars on display in a museum",
+        "author": "Jean-Luc Picard",
+        "authorUrl": "https://unsplash.com/@jeanlucbe",
+        "photoUrl": "https://unsplash.com/photos/PsZG0DMytmw"
+      },
+      "beach": {
+        "url": "https://images.unsplash.com/photo-1771918065800-79e073602e61?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "People enjoying a sunny lakeside beach",
+        "author": "Zikang Zhou",
+        "authorUrl": "https://unsplash.com/@oliver_zhou",
+        "photoUrl": "https://unsplash.com/photos/tYXk0B1MX_M"
+      },
+      "chocolate": {
+        "url": "https://images.unsplash.com/photo-1623053045271-e53d909ef33b?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "A display case of handmade chocolates",
+        "author": "Marquise de Photographie",
+        "authorUrl": "https://unsplash.com/@gmanor",
+        "photoUrl": "https://unsplash.com/photos/HFj0n4FS9uQ"
+      },
+      "shopping": {
+        "url": "https://images.unsplash.com/photo-1772760224872-db7c8f49404a?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "Interior of a shopping mall with escalators",
+        "author": "Andy Wang",
+        "authorUrl": "https://unsplash.com/@space_launch_system",
+        "photoUrl": "https://unsplash.com/photos/brqQcWhP7UI"
+      },
+      "coaster": {
+        "url": "https://images.unsplash.com/photo-1627035983655-0ceec61bb733?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "A roller coaster at an amusement park",
+        "author": "Somruthai Keawjan",
+        "authorUrl": "https://unsplash.com/@deuxsong",
+        "photoUrl": "https://unsplash.com/photos/IU50vDwlhEc"
+      },
+      "geneva": {
+        "url": "https://images.unsplash.com/photo-1690084049569-c6f656c46052?ixlib=rb-4.1.0&auto=format&fit=crop&w=900&q=80",
+        "alt": "People on a dock at Lake Geneva",
+        "author": "Vincent Y",
+        "authorUrl": "https://unsplash.com/@vincentyuan87",
+        "photoUrl": "https://unsplash.com/photos/QJG7P9O57gM"
+      }
+    }
   }
 }
