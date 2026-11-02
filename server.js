@@ -11,6 +11,7 @@ const DATA = process.env.DATA_DIR || path.join(__dirname, 'data');
 const ICAL_URLS = (process.env.ICAL_URLS || process.env.ICAL_URL || '').split(/[\s,]+/).filter(Boolean);
 const CACHE_MS = (parseInt(process.env.ICAL_CACHE_MINUTES || '30', 10)) * 60 * 1000;
 const WEBHOOK = process.env.INQUIRY_WEBHOOK_URL || '';
+const BUILD = Date.now().toString(36); // cache-buster for css/js, changes on every deploy
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon',
@@ -95,8 +96,12 @@ http.createServer(async (req, res) => {
     const file = path.normalize(path.join(PUBLIC, p));
     if (!file.startsWith(PUBLIC)) return send(res, 403, 'Forbidden', 'text/plain');
     fs.stat(file, (err, st) => {
-      if (err || !st.isFile()) { res.writeHead(404, { 'Content-Type': 'text/html' }); return fs.createReadStream(path.join(PUBLIC, 'index.html')).pipe(res); }
       const ext = path.extname(file).toLowerCase();
+      if (err || !st.isFile() || ext === '.html') {
+        const html = fs.readFileSync(path.join(PUBLIC, err || !st.isFile() ? 'index.html' : path.relative(PUBLIC, file)), 'utf8').replace(/__V__/g, BUILD);
+        res.writeHead(err || !st.isFile() ? 404 : 200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
+        return res.end(html);
+      }
       res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream',
         'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=86400',
         'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' });
