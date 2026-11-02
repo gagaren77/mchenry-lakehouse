@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos · McHenry Lakehouse</title>
+<meta name="description" content="All photos of the McHenry Lakehouse: heated pool, private lake, gazebo, bar level, bedrooms and winter views.">
+<meta name="theme-color" content="#0f3b45">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=__V__">
+</head>
+<body class="subpage">
+
+<header class="nav solid">
+  <a class="brand" href="/" aria-label="McHenry Lakehouse home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 17V11l8-6 8 6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span>McHenry Lakehouse</span>
+  </a>
+  <nav aria-label="Main">
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a href="/#stay">The house</a></li>
+      <li><a href="/#amenities">Amenities</a></li>
+      <li><a href="/#availability">Availability</a></li>
+      <li><a href="/#reviews">Reviews</a></li>
+      <li><a href="/#area">Area</a></li>
+      <li><a href="/#directions">Directions</a></li>
+      <li><a class="btn btn-small" href="/#inquire">Request dates</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap photos-page">
+  <p class="eyebrow dark"><a href="/">← Back to the house</a></p>
+  <h1>All photos</h1>
+  <p class="muted" id="photo-count"></p>
+  <div id="photo-groups"></div>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="brand-foot">McHenry Lakehouse</p>
+      <p class="muted-light">Private-lake cabin with heated pool · McHenry, Illinois</p>
+    </div>
+    <div class="foot-links">
+      <a href="/#availability">Availability</a>
+      <a href="/#directions">Directions</a>
+      <a href="/#inquire">Contact</a>
+      <a href="https://www.vrbo.com/2934337" target="_blank" rel="noopener">VRBO listing ↗</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" aria-label="Previous photo">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-nav lb-next" aria-label="Next photo">›</button>
+</div>
+
+<script src="/photos.js?v=__V__"></script>
+<script>
+(() => {
+  const PHOTOS = window.PHOTOS, openLb = window.initLightbox(PHOTOS);
+  document.getElementById('photo-count').textContent = `${PHOTOS.length} photos. Click any photo to view it full size.`;
+  const wrap = document.getElementById('photo-groups');
+  const groups = [...new Set(PHOTOS.map(p => p.group))];
+  groups.forEach(g => {
+    const sec = document.createElement('section'); sec.className = 'photo-group';
+    sec.innerHTML = `<h2>${g}</h2><div class="photo-grid"></div>`;
+    const grid = sec.querySelector('.photo-grid');
+    PHOTOS.forEach((p, i) => {
+      if (p.group !== g) return;
+      const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', `Open photo: ${p.cap}`);
+      b.innerHTML = `<img src="${p.src}" alt="${p.cap}" loading="lazy"><span class="cap">${p.cap}</span>`;
+      b.addEventListener('click', () => openLb(i));
+      grid.appendChild(b);
+    });
+    wrap.appendChild(sec);
+  });
+  const menu = document.getElementById('menu'), btn = document.querySelector('.menu-btn');
+  btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+})();
+</script>
+</body>
+</html>

@@ -263,3 +263,16 @@ p { margin: 0 0 1em; }
   .facts strong { font-size: 1.3rem; }
   .day { font-size: .85rem; border-radius: 8px; }
 }
+
+/* Photos page */
+.subpage .nav { position: sticky; }
+.photos-page { padding: 32px 0 80px; }
+.photos-page h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: .2em; }
+.photos-page .eyebrow a { color: inherit; text-decoration: none; }
+.photo-group { margin-top: 40px; }
+.photo-group h2 { font-size: 1.5rem; margin-bottom: 14px; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.photo-grid button { border: 0; padding: 0; cursor: zoom-in; border-radius: 14px; overflow: hidden; position: relative; background: var(--band); aspect-ratio: 3 / 2; }
+.photo-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.photo-grid button:hover img { transform: scale(1.04); }
+.photo-grid .cap { position: absolute; left: 10px; bottom: 10px; background: rgba(8,28,33,.6); color: #fff; font-size: .8rem; padding: 3px 10px; border-radius: 999px; }

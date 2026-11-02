@@ -5,49 +5,7 @@
   const IMG = id => `https://media.vrbo.com/lodging/84000000/83450000/83448000/83447985/${id}.jpg?impolicy=resizecrop&rw=1600&ra=fit`;
 
   /* ---------- Content ---------- */
-  const PHOTOS = [
-    { src: '/photos/pool-lake-view.jpg', cap: 'Pool with the lake beyond' },
-    { src: '/photos/pool-house.jpg', cap: 'Heated pool and the back of the house' },
-    { src: '/photos/great-room.jpg', cap: 'Great room with stone fireplace and loft' },
-    { src: '/photos/gazebo-summer.jpg', cap: 'Lakeside gazebo and the path up to the house' },
-    { src: '/photos/kitchen-island.jpg', cap: 'Kitchen island with seating' },
-    { src: '/photos/front-summer.jpg', cap: 'The cabin in summer' },
-    { src: '/photos/pool-night.jpg', cap: 'The pool lit up at night' },
-    { src: '/photos/patio-lake-night.jpg', cap: 'Patio over the lake at night' },
-    { src: '/photos/hot-tub-patio.jpg', cap: 'Hot tub on the lower patio' },
-    { src: '/photos/hot-tub.jpg', cap: 'Hot tub' },
-    { src: '/photos/king-bedroom.jpg', cap: 'King bedroom with vaulted ceiling' },
-    { src: '/photos/bar.jpg', cap: 'Downstairs bar and game table' },
-    { src: '/photos/dining-room.jpg', cap: 'Dining room' },
-    { src: '/photos/kitchen.jpg', cap: 'Kitchen with double ovens' },
-    { src: '/photos/loft.jpg', cap: 'Loft lounge with fitness corner' },
-    { src: '/photos/family-room.jpg', cap: 'Lower-level family room with fireplace' },
-    { src: '/photos/game-table.jpg', cap: 'Game table and bar' },
-    { src: '/photos/bar-lounge.jpg', cap: 'Bar lounge with sofa and arcade' },
-    { src: '/photos/pub-table.jpg', cap: 'Pub table by the bar' },
-    { src: '/photos/bear-bedroom.jpg', cap: 'Bear-themed king bedroom' },
-    { src: '/photos/bedroom-tv.jpg', cap: 'King bedroom with en-suite bath' },
-    { src: '/photos/queen-bedroom.jpg', cap: 'Bedroom with two queen beds' },
-    { src: '/photos/office.jpg', cap: 'Home office' },
-    { src: '/photos/jetted-bath.jpg', cap: 'Bath with jetted tub and walk-in shower' },
-    { src: '/photos/bath-vanity.jpg', cap: 'Bathroom with walk-in shower' },
-    { src: '/photos/half-bath.jpg', cap: 'Half bath' },
-    { src: '/photos/kitchenette.jpg', cap: 'Retro diner kitchenette' },
-    { src: '/photos/front-porch.jpg', cap: 'Front porch' },
-    { src: '/photos/deck-sunset.jpg', cap: 'Winter sunset from the deck' },
-    { src: '/photos/deck-winter-lake.jpg', cap: 'Lake view from the deck in winter' },
-    { src: '/photos/winter-gazebo.jpg', cap: 'Lakeside gazebo on a winter night' },
-    { src: '/photos/winter-gazebo-dock.jpg', cap: 'Gazebo and dock in winter' },
-    { src: '/photos/winter-lake.jpg', cap: 'The private lake in winter' },
-    { src: '/photos/winter-back.jpg', cap: 'Back of the cabin after a snowfall' },
-    { src: '/photos/winter-hill.jpg', cap: 'The cabin on the hill in winter' },
-    { src: '/photos/winter-house.jpg', cap: 'The cabin glowing on a snowy evening' },
-    { src: '/photos/winter-front.jpg', cap: 'Front of the cabin on a winter night' },
-    { src: '/photos/winter-yard.jpg', cap: 'The house across the snowy yard' },
-    { src: '/photos/winter-firepit.jpg', cap: 'Fire pit and the house on a snowy night' },
-    { src: '/photos/winter-deck.jpg', cap: 'The deck on a winter evening' },
-    { src: '/photos/winter-steps.jpg', cap: 'Lit steps down to the lake in winter' },
-  ];
+  const PHOTOS = window.PHOTOS;
   const GRID_COUNT = 5;
   const SCORES = [['Cleanliness', 9.4], ['Check-in', 9.4], ['Communication', 9.4], ['Location', 9.4], ['Accuracy', 9.2]];
   const REVIEWS = [
@@ -105,18 +63,8 @@
     b.addEventListener('click', () => openLb(i));
     grid.appendChild(b);
   });
-  const allBtn = $('#gallery-all'); if (allBtn) { allBtn.textContent = `View all ${PHOTOS.length} photos`; allBtn.addEventListener('click', () => openLb(0)); }
-  const lb = $('#lightbox'), lbImg = $('img', lb), lbCap = $('figcaption', lb);
-  let lbIdx = 0, lastFocus = null;
-  function showLb(i) { lbIdx = (i + PHOTOS.length) % PHOTOS.length; lbImg.src = PHOTOS[lbIdx].src; lbImg.alt = PHOTOS[lbIdx].cap; lbCap.textContent = `${PHOTOS[lbIdx].cap} · ${lbIdx + 1} of ${PHOTOS.length}`; }
-  function openLb(i) { lastFocus = document.activeElement; showLb(i); lb.hidden = false; document.body.style.overflow = 'hidden'; $('.lb-close', lb).focus(); }
-  function closeLb() { lb.hidden = true; document.body.style.overflow = ''; lastFocus && lastFocus.focus(); }
-  $('.lb-close', lb).onclick = closeLb; $('.lb-prev', lb).onclick = () => showLb(lbIdx - 1); $('.lb-next', lb).onclick = () => showLb(lbIdx + 1);
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-  document.addEventListener('keydown', e => {
-    if (lb.hidden) return;
-    if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') showLb(lbIdx - 1); if (e.key === 'ArrowRight') showLb(lbIdx + 1);
-  });
+  const allBtn = $('#gallery-all'); if (allBtn) allBtn.textContent = `View all ${PHOTOS.length} photos`;
+  const openLb = window.initLightbox(PHOTOS);
 
   /* ---------- Reviews ---------- */
   $('#score-bars').innerHTML = SCORES.map(([k, v]) =>
