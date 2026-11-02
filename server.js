@@ -92,7 +92,14 @@ http.createServer(async (req, res) => {
       return send(res, 200, { ok: true });
     }
     // static
-    let p = decodeURIComponent(url.pathname); if (p.endsWith('/')) p += 'index.html';
+    let p = decodeURIComponent(url.pathname);
+    // Clean URLs: /photos -> photos.html; redirect /photos.html and /index.html to the short form.
+    if (/\.html$/.test(p)) {
+      const short = p === '/index.html' ? '/' : p.replace(/\.html$/, '');
+      res.writeHead(301, { Location: short + url.search }); return res.end();
+    }
+    if (p.endsWith('/')) p += 'index.html';
+    else if (!path.extname(p) && fs.existsSync(path.join(PUBLIC, p + '.html'))) p += '.html';
     const file = path.normalize(path.join(PUBLIC, p));
     if (!file.startsWith(PUBLIC)) return send(res, 403, 'Forbidden', 'text/plain');
     fs.stat(file, (err, st) => {
