@@ -8,7 +8,6 @@ Effort is engineering time once the inputs are in hand. Impact is on direct book
 |---|---|
 | Premium visual redesign (Figma design system + new pages) | In progress in this thread |
 | Unsplash area and lifestyle imagery | Waiting on Unsplash email confirmation |
-| Subscription model | Waiting on Yuri's pick: sell the site to other owners, guest membership, or both |
 
 ## Open items (blocking or degrading what's already built)
 | Item | Why it matters | Needed from Yuri |
@@ -29,12 +28,3 @@ Effort is engineering time once the inputs are in hand. Impact is on direct book
 | 7 | **Hero video / drone clip** | High visual impact | ~1 hour | A 15-30 s clip (summer pool/lake ideally) |
 
 **Recommended next three:** rates on the site (1), Google Business Profile + SEO (3), guest guide (4). Then Stripe direct booking (2).
-
-## Subscription model (proposal, pending Yuri's choice)
-**A. Sell the site to other rental owners (recommended).** The site becomes a template driven by one config file plus a photo folder. Owners pay monthly; we host on Coolify.
-- Starter $29/mo: one property site, live calendar sync, inquiry form, custom domain, SSL, hosting.
-- Pro $59/mo: everything in Starter + direct booking via Stripe, guest guide, analytics, priority support.
-- Setup fee $199 (photo curation, copy, domain setup); waived on annual plans.
-- Needs: a product landing page, Stripe subscriptions, a simple onboarding form.
-
-**B. Guest membership ("Lake Club").** Yearly fee (e.g. $99) for repeat guests: first pick of summer weekends, 10% off direct bookings, late checkout. Needs Stripe direct booking (item 2) first.

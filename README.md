@@ -14,6 +14,13 @@ Live at **https://mchenry.geekysquirrels.com**. Bookings: [VRBO listing 2934337]
 - FAQ and an inquiry form (with honeypot + rate limiting)
 - SEO: meta/Open Graph tags and schema.org `VacationRental` data
 
+## Content and design
+- **All content lives in [`site.config.json`](site.config.json)**: name, hero, facts, sleeping, amenities, highlights, seasons, rating, reviews, area guide, routes, rules, FAQ and the photo list. Edit it and reload; the server re-reads it when it changes.
+- Pages are rendered on the server by [`views.js`](views.js) (home, `/photos`, `/area`, `/info`, plus `/sitemap.xml`). To run the same site for another rental, change the config, replace `public/photos`, and set `ICAL_URLS`.
+- Design tokens (colors, type, radii) are at the top of [`public/styles.css`](public/styles.css) and mirror the Figma design system file.
+- Optional Unsplash area imagery: add entries under `unsplash.images` in the config (keys match `area.places[].img`, plus `banner`). Images are hotlinked and credited per Unsplash guidelines.
+- Roadmap and open items: [`ROADMAP.md`](ROADMAP.md).
+
 ## Run locally
 ```bash
 node server.js          # http://localhost:3000  (Node 18+, no dependencies)
