@@ -6,12 +6,24 @@
 
   /* ---------- Content ---------- */
   const PHOTOS = [
-    { src: IMG('42544db9'), cap: 'Heated pool' },
-    { src: IMG('06bbe96c'), cap: 'The cabin' },
-    { src: IMG('1e26e682'), cap: 'Living area' },
-    { src: IMG('6adc125d'), cap: 'Kitchen' },
-    { src: IMG('d2a4e999'), cap: 'Outdoor dining' },
+    { src: '/photos/pool-house.jpg', cap: 'Heated pool and the back of the house' },
+    { src: '/photos/great-room.jpg', cap: 'Great room with stone fireplace and loft' },
+    { src: '/photos/kitchen-island.jpg', cap: 'Kitchen island with seating' },
+    { src: '/photos/pool-night.jpg', cap: 'The pool lit up at night' },
+    { src: '/photos/king-bedroom.jpg', cap: 'King bedroom with vaulted ceiling' },
+    { src: '/photos/bar.jpg', cap: 'Downstairs bar and game table' },
+    { src: '/photos/dining-room.jpg', cap: 'Dining room' },
+    { src: '/photos/jetted-bath.jpg', cap: 'Bath with jetted tub and walk-in shower' },
+    { src: '/photos/kitchen.jpg', cap: 'Kitchen with double ovens' },
+    { src: '/photos/kitchenette.jpg', cap: 'Retro diner kitchenette' },
+    { src: '/photos/front-porch.jpg', cap: 'Front porch' },
+    { src: '/photos/winter-lake.jpg', cap: 'The private lake in winter' },
+    { src: '/photos/winter-house.jpg', cap: 'The cabin glowing on a snowy evening' },
+    { src: '/photos/winter-firepit.jpg', cap: 'Fire pit and the house on a snowy night' },
+    { src: '/photos/winter-deck.jpg', cap: 'The deck on a winter evening' },
+    { src: '/photos/winter-steps.jpg', cap: 'Lit steps down to the lake in winter' },
   ];
+  const GRID_COUNT = 5;
   const SCORES = [['Cleanliness', 9.4], ['Check-in', 9.4], ['Communication', 9.4], ['Location', 9.4], ['Accuracy', 9.2]];
   const REVIEWS = [
     { name: 'Lori P.', when: 'July 2026', title: 'Second stay, still perfect', text: 'Came back for a second visit. Loads of space, spotless, great fishing off the dock, and front-row views of the Fourth of July fireworks.' },
@@ -60,13 +72,15 @@
 
   /* ---------- Gallery + lightbox ---------- */
   const grid = $('#gallery-grid');
-  PHOTOS.forEach((p, i) => {
+  PHOTOS.slice(0, GRID_COUNT).forEach((p, i) => {
     const b = document.createElement('button');
     b.type = 'button'; b.setAttribute('aria-label', `Open photo: ${p.cap}`);
-    b.innerHTML = `<img src="${p.src.replace('rw=1600', i ? 'rw=800' : 'rw=1200')}" alt="${p.cap}" loading="lazy"><span class="cap">${p.cap}</span>`;
+    b.innerHTML = `<img src="${p.src}" alt="${p.cap}" ${i ? 'loading="lazy"' : ''}><span class="cap">${p.cap}</span>`;
+    if (i === GRID_COUNT - 1 && PHOTOS.length > GRID_COUNT) b.innerHTML += `<span class="more">See all ${PHOTOS.length} photos</span>`;
     b.addEventListener('click', () => openLb(i));
     grid.appendChild(b);
   });
+  const allBtn = $('#gallery-all'); if (allBtn) { allBtn.textContent = `View all ${PHOTOS.length} photos`; allBtn.addEventListener('click', () => openLb(0)); }
   const lb = $('#lightbox'), lbImg = $('img', lb), lbCap = $('figcaption', lb);
   let lbIdx = 0, lastFocus = null;
   function showLb(i) { lbIdx = (i + PHOTOS.length) % PHOTOS.length; lbImg.src = PHOTOS[lbIdx].src; lbImg.alt = PHOTOS[lbIdx].cap; lbCap.textContent = `${PHOTOS[lbIdx].cap} · ${lbIdx + 1} of ${PHOTOS.length}`; }

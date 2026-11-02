@@ -55,7 +55,7 @@
 
 <main>
 <section class="hero">
-  <img class="hero-img" src="https://media.vrbo.com/lodging/84000000/83450000/83448000/83447985/42544db9.jpg?impolicy=resizecrop&rw=2000&ra=fit" alt="Heated outdoor pool behind the lake cabin" fetchpriority="high">
+  <img class="hero-img" src="https://media.vrbo.com/lodging/84000000/83450000/83448000/83447985/42544db9.jpg?impolicy=resizecrop&rw=2000&ra=fit" alt="Heated outdoor pool behind the lake cabin" fetchpriority="high" onerror="this.onerror=null;this.src='/photos/pool-house.jpg'">
   <div class="hero-shade"></div>
   <div class="hero-inner wrap">
     <p class="eyebrow">McHenry, Illinois · Chain O'Lakes</p>
@@ -101,9 +101,9 @@
 </section>
 
 <section id="gallery" class="section gallery-section">
-  <div class="wrap">
-    <p class="eyebrow dark">Photos</p>
-    <h2>Take a look around</h2>
+  <div class="wrap gallery-head">
+    <div><p class="eyebrow dark">Photos</p><h2>Take a look around</h2></div>
+    <button class="btn btn-outline" id="gallery-all" type="button">View all photos</button>
   </div>
   <div class="gallery wrap" id="gallery-grid"></div>
 </section>
