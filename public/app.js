@@ -52,6 +52,7 @@
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   menuBtn.addEventListener('click', () => { const o = menu.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
   menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+  document.addEventListener('click', e => { if (!e.target.closest('.nav')) { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
 
   /* ---------- Gallery + lightbox ---------- */
   const grid = $('#gallery-grid');
@@ -69,13 +70,18 @@
   /* ---------- Reviews ---------- */
   $('#score-bars').innerHTML = SCORES.map(([k, v]) =>
     `<dt>${k}</dt><dd class="bar" role="img" aria-label="${k} ${v} out of 10"><span style="width:${v * 10}%"></span></dd><dd>${v.toFixed(1)}</dd>`).join('');
-  $('#review-grid').innerHTML = REVIEWS.map(r => `
+  const REVIEW_PREVIEW = 6;
+  const reviewHtml = r => `
     <article class="review card">
       <div class="stars" aria-label="10 out of 10">★★★★★</div>
       <h3>${r.title}</h3>
       <p>${r.text}</p>
       <footer><span class="avatar" aria-hidden="true">${r.name[0]}</span><span><b>${r.name}</b>${r.when}</span></footer>
-    </article>`).join('');
+    </article>`;
+  const rg = $('#review-grid'), moreBtn = $('#reviews-more');
+  rg.innerHTML = REVIEWS.slice(0, REVIEW_PREVIEW).map(reviewHtml).join('');
+  moreBtn.textContent = `Read ${REVIEWS.length - REVIEW_PREVIEW} more reviews`;
+  moreBtn.addEventListener('click', () => { rg.innerHTML = REVIEWS.map(reviewHtml).join(''); moreBtn.parentElement.remove(); });
 
   /* ---------- Calendar ---------- */
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

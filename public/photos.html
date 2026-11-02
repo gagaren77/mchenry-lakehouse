@@ -20,14 +20,15 @@
     <span>McHenry Lakehouse</span>
   </a>
   <nav aria-label="Main">
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span><span></span></button>
     <ul id="menu">
       <li><a href="/#stay">The house</a></li>
+      <li><a href="/photos.html">Photos</a></li>
       <li><a href="/#amenities">Amenities</a></li>
       <li><a href="/#availability">Availability</a></li>
       <li><a href="/#reviews">Reviews</a></li>
-      <li><a href="/#area">Area</a></li>
-      <li><a href="/#directions">Directions</a></li>
+      <li><a href="/area.html">Area &amp; directions</a></li>
+      <li><a href="/info.html">Rules &amp; FAQ</a></li>
       <li><a class="btn btn-small" href="/#inquire">Request dates</a></li>
     </ul>
   </nav>
@@ -84,6 +85,7 @@
   });
   const menu = document.getElementById('menu'), btn = document.querySelector('.menu-btn');
   btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+  document.addEventListener('click', e => { if (!e.target.closest('.nav')) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
 })();
 </script>
 </body>
