@@ -115,7 +115,7 @@ function home(c, v) {
     aggregateRating: { '@type': 'AggregateRating', ratingValue: r.score, bestRating: r.outOf, reviewCount: r.count },
     petsAllowed: c.booking.pets.length > 1,
   };
-  const mosaic = [0, 9, 2, 19, 21].map(i => P[i]).filter(Boolean);
+  const mosaic = [0, 9, 2, 1, 19].map(i => P[i]).filter(Boolean);
   const body = `
 <section class="hero">
   <img class="hero-img" src="${esc(c.hero.image)}" alt="${esc(c.hero.alt)}" fetchpriority="high" onerror="this.onerror=null;this.src='${esc(c.hero.fallback)}'">
@@ -163,7 +163,7 @@ function home(c, v) {
   <div class="wrap">
     ${sectionHead('Signature spaces', 'Three reasons groups <em>come back</em>')}
     <div class="hl-grid">
-      ${c.highlights.map((h, i) => `<article class="hl"><div class="hl-img"><img src="${esc(h.photo)}" alt="" loading="lazy"></div><span class="hl-n">0${i + 1}</span><h3>${esc(h.title)}</h3><p>${esc(h.text)}</p></article>`).join('')}
+      ${c.highlights.map((h, i) => `<article class="hl"><div class="hl-img"><img src="${esc(h.photo)}" alt="" loading="lazy"></div><span class="hl-dot" aria-hidden="true"></span><h3>${esc(h.title)}</h3><p>${esc(h.text)}</p></article>`).join('')}
     </div>
   </div>
 </section>
