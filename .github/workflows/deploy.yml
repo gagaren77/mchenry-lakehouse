@@ -15,7 +15,7 @@ jobs:
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
         run: |
           if [ -z "$COOLIFY_TOKEN" ]; then echo "::error::COOLIFY_TOKEN secret is not set"; exit 1; fi
-          resp=$(curl -sS -w '\n%{http_code}' -H "Authorization: Bearer $COOLIFY_TOKEN" -H "Accept: application/json" \
+          resp=$(curl -sS -X POST -w '\n%{http_code}' -H "Authorization: Bearer $COOLIFY_TOKEN" -H "Accept: application/json" \
             "https://coolify.geekysquirrels.com/api/v1/deploy?uuid=86iy813r00fpkrkmuhuilesj&force=true")
           body=$(echo "$resp" | head -n -1); code=$(echo "$resp" | tail -n 1)
           echo "$body"
