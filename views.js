@@ -230,8 +230,8 @@ function home(c, v) {
   <div class="wrap">
     <div class="head-row"><div>${sectionHead('Plan your stay', 'Everything else you need')}</div></div>
     <div class="explore-grid">
-      <a class="explore" href="/area">${placeImg(c, 'lake', '/photos/winter-lake.jpg')}<div><b>About the area</b><span>Lakes, parks, the Volo museum, Six Flags and Lake Geneva, with drive times.</span></div></a>
-      <a class="explore" href="/area#directions">${placeImg(c, 'banner', '/photos/front-summer.jpg')}<div><b>How to get here</b><span>Map and one-click directions from O'Hare, Chicago, Milwaukee and the Metra.</span></div></a>
+      <a class="explore" href="/area"><img src="/photos/winter-lake.jpg" alt="" loading="lazy"><div><b>About the area</b><span>Lakes, parks, the Volo museum, Six Flags and Lake Geneva, with drive times.</span></div></a>
+      <a class="explore" href="/area#directions"><img src="/photos/front-summer.jpg" alt="" loading="lazy"><div><b>How to get here</b><span>Map and one-click directions from O'Hare, Chicago, Milwaukee and the Metra.</span></div></a>
       <a class="explore" href="/info"><img src="/photos/front-porch.jpg" alt="" loading="lazy"><div><b>House rules &amp; FAQ</b><span>Check-in times, pets, pool season, safety notes and common questions.</span></div></a>
     </div>
   </div>
@@ -261,12 +261,6 @@ function home(c, v) {
 </section>`;
   return layout(c, { title: c.seo.title, description: c.seo.description, path: '/', body, bodyClass: 'home', v,
     head: `<script type="application/ld+json">${JSON.stringify(ld)}</script>` });
-}
-
-function placeImg(c, key, fallback) {
-  const img = (c.unsplash && c.unsplash.images || {})[key];
-  if (img && img.url) return `<img src="${esc(img.url)}" alt="${esc(img.alt || '')}" loading="lazy">`;
-  return fallback ? `<img src="${esc(fallback)}" alt="" loading="lazy">` : '';
 }
 
 function pageHead(eyebrow, title, intro, bg) {
