@@ -52,6 +52,19 @@ async function availability() {
   return cache.data;
 }
 
+// ---------- page rendering ----------
+// Shared header and footer live in public/_nav.html and public/_footer.html and are dropped into
+// every page at <!--#nav--> / <!--#footer-->. The current page's menu link gets aria-current.
+const partial = name => fs.readFileSync(path.join(PUBLIC, `_${name}.html`), 'utf8');
+function render(html, page) {
+  const href = page === '/index.html' ? '/' : page.replace(/\.html$/, '');
+  return html
+    .replace('<!--#nav-->', () => partial('nav'))
+    .replace('<!--#footer-->', () => partial('footer'))
+    .replace(new RegExp(`(<a[^>]*data-nav[^>]*href="${href}")`, 'g'), '$1 aria-current="page"')
+    .replace(/__V__/g, BUILD);
+}
+
 // ---------- helpers ----------
 function send(res, code, body, type = 'application/json') {
   res.writeHead(code, { 'Content-Type': type, 'Cache-Control': 'no-store' });
@@ -93,13 +106,17 @@ http.createServer(async (req, res) => {
     }
     // static
     let p = decodeURIComponent(url.pathname); if (p.endsWith('/')) p += 'index.html';
+    if (!path.extname(p) && fs.existsSync(path.join(PUBLIC, p + '.html'))) p += '.html'; // clean URLs: /house -> house.html
+    if (path.basename(p).startsWith('_')) p = '/__missing__'; // partials are not served directly
     const file = path.normalize(path.join(PUBLIC, p));
     if (!file.startsWith(PUBLIC)) return send(res, 403, 'Forbidden', 'text/plain');
     fs.stat(file, (err, st) => {
       const ext = path.extname(file).toLowerCase();
       if (err || !st.isFile() || ext === '.html') {
-        const html = fs.readFileSync(path.join(PUBLIC, err || !st.isFile() ? 'index.html' : path.relative(PUBLIC, file)), 'utf8').replace(/__V__/g, BUILD);
-        res.writeHead(err || !st.isFile() ? 404 : 200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
+        const missing = err || !st.isFile();
+        const page = missing ? '/index.html' : '/' + path.relative(PUBLIC, file).split(path.sep).join('/');
+        const html = render(fs.readFileSync(path.join(PUBLIC, page), 'utf8'), page);
+        res.writeHead(missing ? 404 : 200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
         return res.end(html);
       }
       res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream',

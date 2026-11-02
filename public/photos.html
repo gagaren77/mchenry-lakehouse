@@ -14,46 +14,16 @@
 </head>
 <body class="subpage">
 
-<header class="nav solid">
-  <a class="brand" href="/" aria-label="McHenry Lakehouse home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 17V11l8-6 8 6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-    <span>McHenry Lakehouse</span>
-  </a>
-  <nav aria-label="Main">
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
-    <ul id="menu">
-      <li><a href="/#stay">The house</a></li>
-      <li><a href="/#amenities">Amenities</a></li>
-      <li><a href="/#availability">Availability</a></li>
-      <li><a href="/#reviews">Reviews</a></li>
-      <li><a href="/#area">Area</a></li>
-      <li><a href="/#directions">Directions</a></li>
-      <li><a class="btn btn-small" href="/#inquire">Request dates</a></li>
-    </ul>
-  </nav>
-</header>
+<!--#nav-->
 
-<main class="wrap photos-page">
+<main id="main" class="wrap photos-page">
   <p class="eyebrow dark"><a href="/">← Back to the house</a></p>
   <h1>All photos</h1>
   <p class="muted" id="photo-count"></p>
   <div id="photo-groups"></div>
 </main>
 
-<footer class="footer">
-  <div class="wrap foot-grid">
-    <div>
-      <p class="brand-foot">McHenry Lakehouse</p>
-      <p class="muted-light">Private-lake cabin with heated pool · McHenry, Illinois</p>
-    </div>
-    <div class="foot-links">
-      <a href="/#availability">Availability</a>
-      <a href="/#directions">Directions</a>
-      <a href="/#inquire">Contact</a>
-      <a href="https://www.vrbo.com/2934337" target="_blank" rel="noopener">VRBO listing ↗</a>
-    </div>
-  </div>
-</footer>
+<!--#footer-->
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
   <button class="lb-close" aria-label="Close">×</button>
@@ -82,9 +52,8 @@
     });
     wrap.appendChild(sec);
   });
-  const menu = document.getElementById('menu'), btn = document.querySelector('.menu-btn');
-  btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
 })();
 </script>
+<script src="/app.js?v=__V__" defer></script>
 </body>
 </html>

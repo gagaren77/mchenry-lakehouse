@@ -4,15 +4,16 @@ Marketing website for a 4-bedroom private-lake cabin with a heated pool in McHen
 Live at **https://mchenry.geekysquirrels.com**. Bookings: [VRBO listing 2934337](https://www.vrbo.com/2934337).
 
 ## What's on the site
-- Hero, house overview and sleeping arrangements
-- Photo gallery with lightbox
-- Amenities, house rules and important information
-- **Availability calendar** (booked vs. available nights, pick check-in/check-out, carries dates into the request form)
-- Guest reviews with rating breakdown
-- About the area (nearby lakes, parks and attractions with drive times)
-- How to get there: Google Maps embed plus one-click directions from O'Hare, Chicago, Milwaukee and the Metra station
-- FAQ and an inquiry form (with honeypot + rate limiting)
-- SEO: meta/Open Graph tags and schema.org `VacationRental` data
+The home page is kept short: hero, photo preview, live availability calendar and the request form.
+Everything else lives on its own page, reachable from the menu (full menu on desktop, three-line menu on phones and tablets):
+- `/photos`: all photos grouped by area, with lightbox
+- `/house`: house overview, sleeping arrangements and amenities
+- `/reviews`: guest reviews with rating breakdown
+- `/area`: nearby lakes, parks and attractions, map and directions from O'Hare, Chicago, Milwaukee and Metra
+- `/rules`: house rules, safety information and FAQ
+
+The shared header and footer are in `public/_nav.html` and `public/_footer.html`; the server inserts them into every page.
+The inquiry form has a honeypot and rate limiting. SEO: meta/Open Graph tags and schema.org `VacationRental` data.
 
 ## Run locally
 ```bash

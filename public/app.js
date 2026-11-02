@@ -47,14 +47,25 @@
   $$('i[data-ico]').forEach(i => { i.innerHTML = ICONS[i.dataset.ico] || ''; });
 
   /* ---------- Nav ---------- */
+  // Desktop shows the full menu; on phones (<= 900px) it collapses behind the three-line button.
   const nav = $('.nav'), menu = $('#menu'), menuBtn = $('.menu-btn');
-  const onScroll = () => nav.classList.toggle('solid', window.scrollY > 40);
+  const sub = document.body.classList.contains('subpage');
+  const onScroll = () => nav.classList.toggle('solid', sub || window.scrollY > 40 || menu.classList.contains('open'));
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  menuBtn.addEventListener('click', () => { const o = menu.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
-  menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+  const setMenu = open => {
+    menu.classList.toggle('open', open); nav.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    onScroll();
+  };
+  menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+  document.addEventListener('click', e => { if (menu.classList.contains('open') && !e.target.closest('.nav')) setMenu(false); });
+  matchMedia('(min-width: 1081px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
   /* ---------- Gallery + lightbox ---------- */
   const grid = $('#gallery-grid');
+  if (grid) {
   PHOTOS.slice(0, GRID_COUNT).forEach((p, i) => {
     const b = document.createElement('button');
     b.type = 'button'; b.setAttribute('aria-label', `Open photo: ${p.cap}`);
@@ -65,8 +76,10 @@
   });
   const allBtn = $('#gallery-all'); if (allBtn) allBtn.textContent = `View all ${PHOTOS.length} photos`;
   const openLb = window.initLightbox(PHOTOS);
+  }
 
   /* ---------- Reviews ---------- */
+  if ($('#review-grid')) {
   $('#score-bars').innerHTML = SCORES.map(([k, v]) =>
     `<dt>${k}</dt><dd class="bar" role="img" aria-label="${k} ${v} out of 10"><span style="width:${v * 10}%"></span></dd><dd>${v.toFixed(1)}</dd>`).join('');
   $('#review-grid').innerHTML = REVIEWS.map(r => `
@@ -76,7 +89,9 @@
       <p>${r.text}</p>
       <footer><span class="avatar" aria-hidden="true">${r.name[0]}</span><span><b>${r.name}</b>${r.when}</span></footer>
     </article>`).join('');
+  }
 
+  if ($('#cal-months')) (() => {
   /* ---------- Calendar ---------- */
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -183,9 +198,11 @@
     finally { btn.disabled = false; }
   });
 
+  })();
+
   /* ---------- Reveal on scroll ---------- */
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
-    $$('.section h2, .card, .place, .amenity-group, .review').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    $$('.section h2, .card, .place, .amenity-group, .review, .tile').forEach(el => { el.classList.add('reveal'); io.observe(el); });
   }
 })();
