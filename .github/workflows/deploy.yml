@@ -1,0 +1,29 @@
+# Redeploys the site on Coolify whenever main is pushed.
+# Needs one repository secret: COOLIFY_TOKEN (a Coolify API token with deploy permission).
+name: Deploy to Coolify
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency: deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Coolify deployment
+        env:
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+        run: |
+          if [ -z "$COOLIFY_TOKEN" ]; then echo "::error::COOLIFY_TOKEN secret is not set"; exit 1; fi
+          resp=$(curl -sS -w '\n%{http_code}' -H "Authorization: Bearer $COOLIFY_TOKEN" -H "Accept: application/json" \
+            "https://coolify.geekysquirrels.com/api/v1/deploy?uuid=86iy813r00fpkrkmuhuilesj&force=true")
+          body=$(echo "$resp" | head -n -1); code=$(echo "$resp" | tail -n 1)
+          echo "$body"
+          [ "$code" = "200" ] || { echo "::error::Coolify answered HTTP $code"; exit 1; }
+      - name: Wait for the site to answer
+        run: |
+          for i in $(seq 1 30); do
+            sleep 10
+            if curl -fsS https://mchenry.geekysquirrels.com/healthz >/dev/null; then echo "Site is up"; exit 0; fi
+          done
+          echo "::warning::Site did not answer within 5 minutes; check Coolify deployment logs"
