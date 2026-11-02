@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://mchenry.geekysquirrels.com/sitemap.xml

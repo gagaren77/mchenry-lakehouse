@@ -12,6 +12,19 @@ const ICAL_URLS = (process.env.ICAL_URLS || process.env.ICAL_URL || '').split(/[
 const CACHE_MS = (parseInt(process.env.ICAL_CACHE_MINUTES || '30', 10)) * 60 * 1000;
 const WEBHOOK = process.env.INQUIRY_WEBHOOK_URL || '';
 const BUILD = Date.now().toString(36); // cache-buster for css/js, changes on every deploy
+const views = require('./views');
+const CONFIG_FILE = process.env.SITE_CONFIG || path.join(__dirname, 'site.config.json');
+let cfg = null, cfgAt = 0;
+function config() { // re-read when the file changes, so content edits need no restart
+  const m = fs.statSync(CONFIG_FILE).mtimeMs;
+  if (!cfg || m !== cfgAt) { cfg = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')); cfgAt = m; }
+  return cfg;
+}
+const PAGES = { '/': views.home, '/photos': views.photos, '/area': views.area, '/info': views.info };
+function html(res, code, body) {
+  res.writeHead(code, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' });
+  res.end(body);
+}
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon',
@@ -86,32 +99,28 @@ http.createServer(async (req, res) => {
       try { fs.mkdirSync(DATA, { recursive: true }); fs.appendFileSync(path.join(DATA, 'inquiries.jsonl'), JSON.stringify(inq) + '\n'); } catch (e) { console.error(e.message); }
       console.log('New inquiry:', JSON.stringify(inq));
       if (WEBHOOK) {
-        const text = `New McHenry Lakehouse inquiry from ${inq.name} <${inq.email}> ${inq.phone}\n${inq.checkin} → ${inq.checkout}, ${inq.guests} guests, pets: ${inq.pets}\n${inq.message}`;
+        const text = `New ${config().name} inquiry from ${inq.name} <${inq.email}> ${inq.phone}\n${inq.checkin} → ${inq.checkout}, ${inq.guests} guests, pets: ${inq.pets}\n${inq.message}`;
         fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, content: text, ...inq }) }).catch(e => console.error('webhook', e.message));
       }
       return send(res, 200, { ok: true });
     }
-    // static
+    // pages (rendered from site.config.json)
     let p = decodeURIComponent(url.pathname);
-    // Clean URLs: /photos -> photos.html; redirect /photos.html and /index.html to the short form.
     if (/\.html$/.test(p)) {
       const short = p === '/index.html' ? '/' : p.replace(/\.html$/, '');
       res.writeHead(301, { Location: short + url.search }); return res.end();
     }
-    if (p.endsWith('/')) p += 'index.html';
-    else if (!path.extname(p) && fs.existsSync(path.join(PUBLIC, p + '.html'))) p += '.html';
+    const route = p.replace(/\/+$/, '') || '/';
+    if (PAGES[route]) return html(res, 200, PAGES[route](config(), BUILD));
+    if (route === '/sitemap.xml') { res.writeHead(200, { 'Content-Type': 'application/xml' }); return res.end(views.sitemap(config())); }
+    // static assets
     const file = path.normalize(path.join(PUBLIC, p));
     if (!file.startsWith(PUBLIC)) return send(res, 403, 'Forbidden', 'text/plain');
     fs.stat(file, (err, st) => {
+      if (err || !st.isFile()) return html(res, 404, views.notFound(config(), BUILD));
       const ext = path.extname(file).toLowerCase();
-      if (err || !st.isFile() || ext === '.html') {
-        const html = fs.readFileSync(path.join(PUBLIC, err || !st.isFile() ? 'index.html' : path.relative(PUBLIC, file)), 'utf8').replace(/__V__/g, BUILD);
-        res.writeHead(err || !st.isFile() ? 404 : 200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
-        return res.end(html);
-      }
       res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream',
-        'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=86400',
-        'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' });
+        'Cache-Control': 'public, max-age=86400', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' });
       fs.createReadStream(file).pipe(res);
     });
   } catch (e) { console.error(e); send(res, 500, { ok: false }); }
